@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 800px;
+}
+.books_list {
+  width: 100%;
+  background-color: red;
+}
+
+.add_books {
+  width: 100%;
+  background-color: green;
+}
