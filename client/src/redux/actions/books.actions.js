@@ -17,3 +17,13 @@ export const removeBook = (id) => async (dispatch) => {
     payload: id,
   });
 };
+
+export const newBook = (newBookData) => async (dispatch) => {
+  const newBook = (
+    await axios.post('http://localhost:8080/books/new', newBookData)
+  ).data;
+  return dispatch({
+    type: BOOKS_NEW,
+    payload: newBook,
+  });
+};
