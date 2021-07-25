@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllBooks, removeBook } from '../../redux/actions/books.actions';
 
-export default function BooksList() {
+export default function BooksList({ allBooks }) {
   const booksList = useSelector((state) => state.books);
   const dispatch = useDispatch();
 
@@ -14,16 +14,21 @@ export default function BooksList() {
   const removeHandler = (id) => {
     dispatch(removeBook(id));
   };
+
+  const editHandler = (id) => {
+    
+  }
   return (
     <>
       <h2>Список книг</h2>
-      {booksList.length ? (
+      {allBooks.length ? (
         <ul>
-          {booksList.map((el) => (
+          {allBooks.map((el) => (
             <BookItem
               key={el._id}
               book={{ ...el }}
               removeHandler={removeHandler}
+              editHandler={editHandler}
             />
           ))}
         </ul>

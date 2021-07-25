@@ -16,8 +16,8 @@ router.post('/new', async (req, res) => {
   try {
     const newBook = await BookModel.create({
       title,
-      pages,
-      year,
+      pages: Number(pages),
+      year: Number(year),
       author,
     });
     res.json(newBook);
